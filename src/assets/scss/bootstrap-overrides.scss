@@ -1,0 +1,45 @@
+@use 'variables' as *;
+
+// ============================================
+// Overrides de Bootstrap 5.3.8
+// (se cargan ANTES del import de bootstrap en styles.scss)
+// ============================================
+
+// Colores base del sistema de theming de Bootstrap
+$body-bg: $black-primary;
+$body-color: $white;
+
+$card-bg: $black-secondary;
+$card-border-color: $dark-gray;
+$card-border-radius: $border-radius-base;
+
+$input-bg: $black-secondary;
+$input-color: $white;
+$input-border-color: $dark-gray;
+$input-focus-border-color: $electric-blue;
+$input-focus-bg: $black-secondary;
+$input-focus-color: $white;
+$input-placeholder-color: $light-gray;
+
+$modal-content-bg: $black-secondary;
+$modal-backdrop-bg: $black-primary;
+$modal-backdrop-opacity: 0.75;
+
+$btn-border-radius: $border-radius-base;
+$border-radius: $border-radius-base;
+
+$table-bg: transparent;
+$table-color: $white;
+$table-border-color: $dark-gray;
+$table-striped-bg: rgba(255, 255, 255, 0.03);
+$table-hover-bg: rgba(0, 212, 255, 0.06);
+
+$dropdown-bg: $black-secondary;
+$dropdown-link-color: $white;
+$dropdown-link-hover-bg: rgba(0, 212, 255, 0.1);
+$dropdown-border-color: $dark-gray;
+
+$font-family-sans-serif: $font-family-base;
+
+$link-color: $electric-blue;
+$link-hover-color: $electric-blue-dark;

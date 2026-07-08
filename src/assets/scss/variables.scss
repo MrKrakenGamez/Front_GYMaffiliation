@@ -1,0 +1,53 @@
+// ============================================
+// GymAffiliate Manager — Variables SCSS
+// ============================================
+
+// --- Paleta de colores ---
+$black-primary: #0A0A0A;      // Fondos principales, sidebar, header
+$black-secondary: #1A1A1A;    // Tarjetas, modales, inputs
+$electric-blue: #00D4FF;      // Botones primarios, hover, acentos
+$electric-blue-dark: #0099CC; // Botones hover, estados activos
+$white: #FFFFFF;              // Texto principal, íconos
+$smoke-white: #F5F5F5;        // Texto secundario, bordes suaves
+$gold: #FFD700;               // Detalles premium, badges, éxito
+$gold-dark: #DAA520;          // Hover de elementos dorados
+
+// Colores complementarios
+$soft-red: #FF4444;           // Errores, vencido
+$electric-green: #00E676;     // Éxito, activo
+$dark-gray: #2C2C2C;          // Separadores, bordes
+$light-gray: #888888;         // Texto placeholder
+
+// --- Overrides de variables Bootstrap ---
+$primary: $electric-blue;
+$secondary: $dark-gray;
+$success: $electric-green;
+$warning: $gold;
+$danger: $soft-red;
+$dark: $black-primary;
+$light: $smoke-white;
+
+// --- Tipografía ---
+$font-family-base: 'Poppins', 'Inter', 'Montserrat', sans-serif;
+$font-size-base: 1rem;
+
+// --- Bordes y sombras ---
+$border-radius-base: 12px;
+$border-radius-lg: 16px;
+$box-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.4);
+$box-shadow-glow-blue: 0 0 16px rgba(0, 212, 255, 0.35);
+$box-shadow-glow-gold: 0 0 16px rgba(255, 215, 0, 0.35);
+
+// --- Transiciones ---
+$transition-fast: 0.2s ease-in-out;
+$transition-base: 0.3s ease-in-out;
+
+// --- Breakpoints (alineados a Bootstrap 5.3.8) ---
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
+
+// --- Layout ---
+$sidebar-width: 260px;
+$sidebar-width-collapsed: 72px;
+$header-height: 64px;

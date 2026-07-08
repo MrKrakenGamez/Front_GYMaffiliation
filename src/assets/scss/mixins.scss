@@ -1,0 +1,64 @@
+@use 'variables' as *;
+
+// ============================================
+// Mixins responsive (mobile-first)
+// ============================================
+@mixin tablet-up {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+// ============================================
+// Mixins de efectos visuales
+// ============================================
+@mixin glassmorphism($bg: rgba(26, 26, 26, 0.6)) {
+  background: $bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $border-radius-lg;
+}
+
+@mixin neomorphic($bg: $black-secondary) {
+  background: $bg;
+  border-radius: $border-radius-lg;
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.02);
+}
+
+@mixin card-hover-glow($color: $electric-blue) {
+  transition: box-shadow $transition-base, transform $transition-base;
+  &:hover {
+    box-shadow: 0 0 20px rgba($color, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+@mixin focus-ring($color: $electric-blue) {
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border-color: $color;
+    box-shadow: 0 0 0 3px rgba($color, 0.25);
+  }
+}
+
+@mixin truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,104 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// Reset / Base
+// ============================================
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: $font-family-base;
+  background-color: $black-primary;
+  color: $white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: $black-primary;
+}
+::-webkit-scrollbar-thumb {
+  background: $dark-gray;
+  border-radius: 4px;
+  &:hover {
+    background: $electric-blue-dark;
+  }
+}
+
+// ============================================
+// Clases utilitarias custom
+// ============================================
+.bg-electric-blue {
+  background-color: $electric-blue !important;
+  color: $black-primary !important;
+}
+
+.text-electric-blue {
+  color: $electric-blue !important;
+}
+
+.text-gold {
+  color: $gold !important;
+}
+
+.bg-gold {
+  background-color: $gold !important;
+  color: $black-primary !important;
+}
+
+.border-gold {
+  border-color: $gold !important;
+}
+
+.glassmorphism {
+  @include glassmorphism;
+}
+
+.neomorphic {
+  @include neomorphic;
+}
+
+.card-hover-glow {
+  @include card-hover-glow;
+}
+
+.transition-fast {
+  transition: all $transition-fast;
+}
+
+.transition-base {
+  transition: all $transition-base;
+}
+
+// ============================================
+// Estados / badges de dominio
+// ============================================
+.badge-activo {
+  background-color: rgba($electric-green, 0.15);
+  color: $electric-green;
+  border: 1px solid rgba($electric-green, 0.4);
+}
+
+.badge-vencido {
+  background-color: rgba($soft-red, 0.15);
+  color: $soft-red;
+  border: 1px solid rgba($soft-red, 0.4);
+}
+
+.badge-suspendido {
+  background-color: rgba(#FFA500, 0.15);
+  color: #FFA500;
+  border: 1px solid rgba(#FFA500, 0.4);
+}
+
+.badge-premium {
+  background-color: rgba($gold, 0.15);
+  color: $gold;
+  border: 1px solid rgba($gold, 0.4);
+}
