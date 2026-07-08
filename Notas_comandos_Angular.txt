@@ -35,6 +35,7 @@ ng generate component shared/components/loading-spinner --skip-tests
 
 6. Feature de autenticación
 ng generate component features/auth/login --skip-tests
+ng generate component features/dashboard/dashboard-placeholder --skip-tests --inline-template --inline-style
 
 7. Layout
 ng generate component layout/sidebar --skip-tests

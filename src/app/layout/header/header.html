@@ -1,1 +1,19 @@
-<p>header works!</p>
+<!-- src/app/layout/header/header.component.html -->
+
+<header class="app-header d-flex align-items-center justify-content-between px-3">
+  <button class="btn btn-sm text-white" (click)="toggleSidebar.emit()">
+    <i class="bi bi-list fs-4"></i>
+  </button>
+
+  <div class="d-flex align-items-center gap-3">
+    @if (authService.currentUser(); as user) {
+      <div class="text-end d-none d-sm-block">
+        <div class="fw-semibold">{{ user.fullName }}</div>
+        <div class="text-gold small">{{ user.roleName }}</div>
+      </div>
+    }
+    <button class="btn btn-sm bg-electric-blue" (click)="logout()">
+      <i class="bi bi-box-arrow-right me-1"></i> Salir
+    </button>
+  </div>
+</header>

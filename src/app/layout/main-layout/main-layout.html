@@ -1,1 +1,18 @@
-<p>main-layout works!</p>
+<!-- src/app/layout/main-layout/main-layout.component.html -->
+
+<div class="layout-shell d-flex">
+  <app-sidebar [collapsed]="sidebarCollapsed()" />
+
+  <div class="layout-content d-flex flex-column flex-grow-1">
+    <app-header (toggleSidebar)="toggleSidebar()" />
+
+    <main class="flex-grow-1 p-3 p-md-4">
+      <router-outlet />
+    </main>
+
+    <app-footer />
+  </div>
+</div>
+
+<app-toast-container />
+<app-loading-spinner />

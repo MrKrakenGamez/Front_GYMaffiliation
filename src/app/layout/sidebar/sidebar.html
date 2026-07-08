@@ -1,1 +1,21 @@
-<p>sidebar works!</p>
+<!-- src/app/layout/sidebar/sidebar.component.html -->
+
+<aside class="sidebar" [class.collapsed]="collapsed()">
+  <div class="sidebar-brand px-3 py-4">
+    <span class="text-gold fw-bold" [class.d-none]="collapsed()">GymAffiliate</span>
+    <i class="bi bi-lightning-charge-fill text-electric-blue" [class.d-none]="!collapsed()"></i>
+  </div>
+
+  <nav class="sidebar-nav">
+    @for (item of visibleItems(); track item.route) {
+      
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        class="sidebar-link"
+      <a href="">
+        <i class="bi {{ item.icon }}"></i>
+        <span [class.d-none]="collapsed()">{{ item.label }}</span>
+      </a>
+    }
+  </nav>
+</aside>

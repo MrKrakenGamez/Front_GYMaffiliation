@@ -1,1 +1,51 @@
-<p>login works!</p>
+<!-- src/app/features/auth/login/login.component.html -->
+
+<div class="login-page d-flex align-items-center justify-content-center vh-100">
+  <div class="login-card glassmorphism p-4 p-md-5">
+    <div class="text-center mb-4">
+      <h1 class="text-gold fw-bold mb-1">GymAffiliate</h1>
+      <p class="text-white-50 mb-0">Panel de administración</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="mb-3">
+        <label class="form-label text-white-50">Usuario</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="username"
+          [class.is-invalid]="form.controls.username.invalid && form.controls.username.touched"
+          autocomplete="username"
+        />
+        @if (form.controls.username.invalid && form.controls.username.touched) {
+          <div class="invalid-feedback">El usuario es requerido.</div>
+        }
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label text-white-50">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          [class.is-invalid]="form.controls.password.invalid && form.controls.password.touched"
+          autocomplete="current-password"
+        />
+        @if (form.controls.password.invalid && form.controls.password.touched) {
+          <div class="invalid-feedback">La contraseña debe tener al menos 4 caracteres.</div>
+        }
+      </div>
+
+      <button
+        type="submit"
+        class="btn bg-electric-blue w-100 fw-semibold py-2"
+        [disabled]="isSubmitting"
+      >
+        @if (isSubmitting) {
+          <span class="spinner-border spinner-border-sm me-2"></span>
+        }
+        Ingresar
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+// src/app/layout/main-layout/main-layout.component.scss
+
+.layout-shell {
+  min-height: 100vh;
+  background: #0a0a0a;
+}
+
+.layout-content {
+  min-width: 0; // evita overflow con tablas anchas
+}
