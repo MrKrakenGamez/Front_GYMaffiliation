@@ -1,0 +1,43 @@
+1. Carpetas y archivos que el CLI no genera (modelos y constantes son TS planos, sin schematic)
+mkdir -p src/app/core/models
+mkdir -p src/app/core/constants
+
+---- Linux
+touch src/app/core/models/api-response.model.ts
+touch src/app/core/models/auth.model.ts
+touch src/app/core/constants/storage-keys.constants.ts
+touch src/app/core/constants/api-endpoints.constants.ts
+
+--CMD
+echo. > src/app/core/models/api-response.model.ts
+echo. > src/app/core/models/auth.model.ts
+echo. > src/app/core/constants/storage-keys.constants.ts
+echo. > src/app/core/constants/api-endpoints.constants.ts
+
+
+2. Servicios (ng generate service)
+ng generate service core/services/auth --skip-tests
+ng generate service core/services/notification --skip-tests
+ng generate service core/services/loading --skip-tests
+
+
+3. Interceptores (ng generate interceptor)
+ng generate interceptor core/interceptors/auth --skip-tests
+ng generate interceptor core/interceptors/loading --skip-tests
+
+4. Guards (ng generate guard)
+ng generate guard core/guards/auth --implements=CanActivate --skip-tests
+ng generate guard core/guards/role --implements=CanActivate --skip-tests
+
+5. Componentes compartidos (ng generate component)
+ng generate component shared/components/toast-container --skip-tests
+ng generate component shared/components/loading-spinner --skip-tests
+
+6. Feature de autenticación
+ng generate component features/auth/login --skip-tests
+
+7. Layout
+ng generate component layout/sidebar --skip-tests
+ng generate component layout/header --skip-tests
+ng generate component layout/footer --skip-tests
+ng generate component layout/main-layout --skip-tests
