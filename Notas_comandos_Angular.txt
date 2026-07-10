@@ -1,24 +1,30 @@
 1. Carpetas y archivos que el CLI no genera (modelos y constantes son TS planos, sin schematic)
 mkdir -p src/app/core/models
 mkdir -p src/app/core/constants
+mkdir -p src/app/features/affiliates/models
+
 
 ---- Linux
 touch src/app/core/models/api-response.model.ts
 touch src/app/core/models/auth.model.ts
 touch src/app/core/constants/storage-keys.constants.ts
 touch src/app/core/constants/api-endpoints.constants.ts
+touch src/app/features/affiliates/affiliates.routes.ts
 
 --CMD
 echo. > src/app/core/models/api-response.model.ts
 echo. > src/app/core/models/auth.model.ts
 echo. > src/app/core/constants/storage-keys.constants.ts
 echo. > src/app/core/constants/api-endpoints.constants.ts
+echo. > src/app/features/affiliates/affiliates.routes.ts
 
 
 2. Servicios (ng generate service)
 ng generate service core/services/auth --skip-tests
 ng generate service core/services/notification --skip-tests
 ng generate service core/services/loading --skip-tests
+ng generate service features/affiliates/services/affiliate --skip-tests
+
 
 
 3. Interceptores (ng generate interceptor)
@@ -42,3 +48,13 @@ ng generate component layout/sidebar --skip-tests
 ng generate component layout/header --skip-tests
 ng generate component layout/footer --skip-tests
 ng generate component layout/main-layout --skip-tests
+
+8.- affiliate
+ng generate component features/affiliates/affiliate-list --skip-tests
+ng generate component features/affiliates/affiliate-form --skip-tests
+ng generate component features/affiliates/affiliate-detail --skip-tests
+
+9.- paginator,search,confirmation
+ng generate component shared/components/paginator --skip-tests
+ng generate component shared/components/search-input --skip-tests
+ng generate component shared/components/confirmation-dialog --skip-tests

@@ -11,7 +11,9 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./layout/main-layout/main-layout').then((m) => m.MainLayoutComponent),
+      import('./layout/main-layout/main-layout').then(
+        (m) => m.MainLayoutComponent,
+      ),
     canActivate: [authGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -19,9 +21,16 @@ export const routes: Routes = [
         path: 'dashboard',
         loadComponent: () =>
           import('./features/dashboard/dashboard-placeholder/dashboard-placeholder').then(
-            (m) => m.DashboardPlaceholderComponent
+            (m) => m.DashboardPlaceholderComponent,
           ),
         title: 'Dashboard — GymAffiliate Manager',
+      },
+      {
+        path: 'affiliates',
+        loadChildren: () =>
+          import('./features/affiliates/affiliates.routes').then(
+            (m) => m.AFFILIATES_ROUTES,
+          ),
       },
       // Próximas fases se agregan aquí como hijos del layout:
       // { path: 'affiliates', loadChildren: ... }

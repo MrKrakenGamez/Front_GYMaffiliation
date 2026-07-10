@@ -5,6 +5,7 @@ import { HeaderComponent } from '../header/header';
 import { FooterComponent } from '../footer/footer';
 import { ToastContainerComponent } from '../../shared/components/toast-container/toast-container';
 import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner/loading-spinner';
+import { ConfirmationDialogComponent } from "../../shared/components/confirmation-dialog/confirmation-dialog";
 
 @Component({
   selector: 'app-main-layout',
@@ -16,7 +17,8 @@ import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner
     FooterComponent,
     ToastContainerComponent,
     LoadingSpinnerComponent,
-  ],
+    ConfirmationDialogComponent
+],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',
 })
