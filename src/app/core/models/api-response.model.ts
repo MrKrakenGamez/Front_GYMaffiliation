@@ -1,6 +1,3 @@
-// src/app/core/models/api-response.model.ts
-
-/** Envelope estándar que devuelve la API (Shared.Result.ApiResponse<T>) */
 export interface ApiResponse<T> {
   success: boolean;
   data: T | null;

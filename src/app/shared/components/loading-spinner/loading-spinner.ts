@@ -1,5 +1,3 @@
-// src/app/shared/components/loading-spinner/loading-spinner.component.ts
-
 import { Component, inject } from '@angular/core';
 import { LoadingService } from '../../../core/services/loading';
 

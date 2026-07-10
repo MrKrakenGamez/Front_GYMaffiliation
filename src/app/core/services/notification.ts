@@ -1,5 +1,3 @@
-// src/app/core/services/notification.service.ts
-
 import { Injectable, signal } from '@angular/core';
 
 export type ToastType = 'success' | 'error' | 'warning' | 'info';

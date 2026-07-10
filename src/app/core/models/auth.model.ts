@@ -1,5 +1,3 @@
-// src/app/core/models/auth.model.ts
-
 /** Coincide 1:1 con los roles reales en SystemUsers */
 export type RoleCode = 'SUPERADMIN' | 'ADMIN' | 'RECEPTION' | 'TRAINER' | 'READONLY';
 

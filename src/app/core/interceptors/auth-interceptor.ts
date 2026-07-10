@@ -1,5 +1,3 @@
-// src/app/core/interceptors/auth.interceptor.ts
-
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError, switchMap, throwError } from 'rxjs';

@@ -1,5 +1,3 @@
-// src/app/layout/header/header.component.ts
-
 import { Component, inject, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../core/services/auth';

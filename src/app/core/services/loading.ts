@@ -1,5 +1,3 @@
-// src/app/core/services/loading.service.ts
-
 import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
