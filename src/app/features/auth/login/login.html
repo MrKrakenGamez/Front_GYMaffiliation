@@ -35,11 +35,10 @@
       </div>
 
       <button
-        type="submit"
-        class="btn bg-electric-blue w-100 fw-semibold py-2"
-        [disabled]="isSubmitting"
-      >
-        @if (isSubmitting) {
+          type="submit"
+          class="btn bg-electric-blue w-100 fw-semibold py-2"
+          [disabled]="isSubmitting()">
+        @if (isSubmitting()) {
           <span class="spinner-border spinner-border-sm me-2"></span>
         }
         Ingresar

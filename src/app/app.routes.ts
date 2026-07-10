@@ -19,7 +19,7 @@ export const routes: Routes = [
         path: 'dashboard',
         loadComponent: () =>
           import('./features/dashboard/dashboard-placeholder/dashboard-placeholder').then(
-            (m) => m.DashboardPlaceholder
+            (m) => m.DashboardPlaceholderComponent
           ),
         title: 'Dashboard — GymAffiliate Manager',
       },

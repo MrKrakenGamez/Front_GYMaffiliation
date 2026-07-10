@@ -1,4 +1,6 @@
-import { Component, inject } from '@angular/core';
+// src/app/features/auth/login/login.component.ts
+
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
@@ -19,7 +21,7 @@ export class LoginComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
-  isSubmitting = false;
+  isSubmitting = signal(false);
 
   form = this.fb.group({
     username: ['', [Validators.required]],
@@ -32,12 +34,12 @@ export class LoginComponent {
       return;
     }
 
-    this.isSubmitting = true;
+    this.isSubmitting.set(true);
     const { username, password } = this.form.getRawValue();
 
     this.authService.login({ username: username!, password: password! }).subscribe({
       next: (ok) => {
-        this.isSubmitting = false;
+        this.isSubmitting.set(false);
         if (ok) {
           const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') ?? '/dashboard';
           this.router.navigateByUrl(returnUrl);
@@ -46,7 +48,7 @@ export class LoginComponent {
         }
       },
       error: () => {
-        this.isSubmitting = false;
+        this.isSubmitting.set(false);
         this.notificationService.error('No se pudo conectar con el servidor.');
       },
     });
