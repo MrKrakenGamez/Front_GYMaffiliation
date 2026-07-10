@@ -1,18 +1,272 @@
+// .login-page {
+//   background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.15), transparent 60%),
+//     #0a0a0a;
+// }
+
+// .login-card {
+//   width: 100%;
+//   max-width: 420px;
+//   border-radius: 16px;
+// }
+
+// .form-control {
+//   transition: all 0.2s ease-in-out;
+//   &:focus {
+//     border-color: #00d4ff;
+//     box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.25);
+//   }
+// }
+
 .login-page {
-  background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.15), transparent 60%),
-    #0a0a0a;
+  min-height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px;
+
+// background-color: #000;
+
+  background:
+    linear-gradient(
+      rgba(10,10,10,.55),
+      rgba(10,10,10,.75)
+    ),
+    url("../../../../assets/images/purple3.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+.login-card{
+
+    width:100%;
+    max-width:1050px;
+
+    min-height:620px;
+
+    display:flex;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:white;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45);
 }
 
-.login-card {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 16px;
+.login-left{
+
+    width:45%;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.55)
+        ),
+        url("../../../../assets/images/gorilla_hannyamask1.jpg"); // ajustar la imagen para el login
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+
+    display:flex;
+    align-items:flex-end;
+}
+.overlay{
+
+    padding:50px;
+    width:100%;
+}
+.login-left h1{
+
+    font-size:4rem;
+
+    font-weight:800;
+
+    line-height:1;
+
+    margin-bottom:25px;
+}
+.login-left p{
+
+    color:rgba(255,255,255,.85);
+
+    font-size:15px;
+
+    line-height:26px;
+}
+.login-right{
+
+    width:55%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:70px;
+}
+form{
+
+    width:100%;
+    max-width:360px;
 }
 
-.form-control {
-  transition: all 0.2s ease-in-out;
-  &:focus {
-    border-color: #00d4ff;
-    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.25);
-  }
+.text-gold{
+
+    color:#FFD700;
+
+    font-size:42px;
+
+    font-weight:700;
+}
+.form-label{
+
+    color:#555 !important;
+
+    font-size:14px;
+
+    margin-bottom:8px;
+}
+.form-control{
+
+    border:none;
+
+    border-bottom:2px solid #d5d5d5;
+
+    border-radius:0;
+
+    padding-left:0;
+
+    padding-right:0;
+
+    background:transparent;
+
+    font-size:16px;
+
+    box-shadow:none;
+
+    transition:.25s;
+}
+.form-control:focus{
+
+    border-bottom:2px solid #00D4FF;
+
+    box-shadow:none;
+
+    background:transparent;
+}
+.bg-electric-blue{
+     min-width:170px;
+    background:#BF00FF;
+    border:none;
+    border-radius:10px;
+    height:60px;
+    color:#FFD700;
+    transition:.3s;
+}
+.bg-electric-blue:hover{
+
+    background:#1f7fd1;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+@media(max-width:992px){
+
+    .login-card{
+
+        flex-direction:column;
+        max-width:500px;
+        min-height:auto;
+    }
+
+    .login-left{
+
+        width:100%;
+        min-height:240px;
+    }
+
+    .login-right{
+
+        width:100%;
+        padding:40px;
+    }
+
+    .login-left h1{
+
+        font-size:48px;
+    }
+}
+
+
+/// social media
+.social-section{
+    margin-top:30px;
+}
+
+.social-title{
+
+    color:rgba(255,255,255,.85);
+
+    font-size:14px;
+
+    margin-bottom:15px;
+}
+
+.social-icons{
+
+    display:flex;
+
+    gap:18px;
+}
+
+.social-icons a{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    border-radius:50%;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.social-icons i{
+
+    font-size:22px;
+
+    color:#D4AF37;
+}
+
+.social-icons a:hover{
+
+    background:#D4AF37;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 8px 20px rgba(212,175,55,.35);
+}
+
+.social-icons a:hover i{
+
+    color:#ffffff;
 }

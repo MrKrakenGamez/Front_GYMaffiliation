@@ -1,4 +1,4 @@
-<div class="login-page d-flex align-items-center justify-content-center vh-100">
+<!-- <div class="login-page d-flex align-items-center justify-content-center vh-100">
   <div class="login-card glassmorphism p-4 p-md-5">
     <div class="text-center mb-4">
       <h1 class="text-gold fw-bold mb-1">GymAffiliate</h1>
@@ -44,5 +44,99 @@
         Ingresar
       </button>
     </form>
+  </div>
+</div> -->
+
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-left">
+      <div class="overlay">
+        <h1 class="text-gold">GymAffiliate</h1>
+
+        <p>
+          Sistema de administración de afiliados, membresías y control de
+          accesos.
+        </p>
+        <div class="social-section">
+          <p class="social-title">Síguenos</p>
+
+          <div class="social-icons">
+            <!-- <a href="#" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a> -->
+
+            <a href="#" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+
+            <!-- <a href="#" aria-label="X">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+
+            <a href="#" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-right">
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <h1 class="text-gold">login</h1>
+        <div class="mb-3">
+          <label class="form-label text-white-50">Usuario</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="username"
+            [class.is-invalid]="
+              form.controls.username.invalid && form.controls.username.touched
+            "
+            autocomplete="username"
+          />
+          @if (
+            form.controls.username.invalid && form.controls.username.touched
+          ) {
+            <div class="invalid-feedback">El usuario es requerido.</div>
+          }
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label text-white-50">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            [class.is-invalid]="
+              form.controls.password.invalid && form.controls.password.touched
+            "
+            autocomplete="current-password"
+          />
+          @if (
+            form.controls.password.invalid && form.controls.password.touched
+          ) {
+            <div class="invalid-feedback">
+              La contraseña debe tener al menos 4 caracteres.
+            </div>
+          }
+        </div>
+        <br>
+
+        <div class="d-flex justify-content-end">
+          <button
+            type="submit"
+            class="btn bg-electric-blue px-5 fw-semibold py-2"
+            [disabled]="isSubmitting()"
+          >
+            @if (isSubmitting()) {
+              <span class="spinner-border spinner-border-sm me-2"></span>
+            }
+
+            Ingresar
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
