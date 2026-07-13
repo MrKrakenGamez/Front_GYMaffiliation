@@ -1,4 +1,4 @@
-<aside class="sidebar" [class.collapsed]="collapsed()">
+<!-- <aside class="sidebar" [class.collapsed]="collapsed()">
   <div class="sidebar-brand px-3 py-4">
     <span class="text-gold fw-bold" [class.d-none]="collapsed()">GymAffiliate</span>
     <i class="bi bi-lightning-charge-fill text-electric-blue" [class.d-none]="!collapsed()"></i>
@@ -6,14 +6,35 @@
 
   <nav class="sidebar-nav">
     @for (item of visibleItems(); track item.route) {
-      
-        [routerLink]="item.route"
-        routerLinkActive="active"
-        class="sidebar-link"
+        [routerLink]="item.route" routerLinkActive="router-link-active" class="sidebar-link"
       <a href="">
         <i class="bi {{ item.icon }}"></i>
         <span [class.d-none]="collapsed()">{{ item.label }}</span>
       </a>
     }
   </nav>
-</aside>
+</aside> -->
+
+<nav class="sidebar-nav">
+  @for (item of visibleItems(); track item.route) {
+    <a
+      routerLink="{{ item.route }}"
+      routerLinkActive="active"
+      class="sidebar-link"
+    >
+      <div class="icon">
+        <i class="bi {{ item.icon }}"></i>
+      </div>
+
+      <span class="label" [class.d-none]="collapsed()">
+        {{ item.label }}
+      </span>
+
+      <div class="tooltip-box" [class.show]="collapsed()">
+        <strong>{{ item.label }}</strong>
+
+        <small>{{ item.description }}</small>
+      </div>
+    </a>
+  }
+</nav>

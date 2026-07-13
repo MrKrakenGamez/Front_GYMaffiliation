@@ -1,0 +1,133 @@
+// dt { font-weight: 400; }
+
+/* GymAffiliate Affiliate Detail - Premium Theme */
+
+:host{
+  display:block;
+}
+
+.profile-card{
+  background:#111;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:24px;
+  padding:2rem;
+  box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+
+.profile-header{
+  display:flex;
+  align-items:center;
+  gap:1.5rem;
+  margin-bottom:2rem;
+  flex-wrap:wrap;
+}
+
+.affiliate-avatar{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#7B2FF7,#A855F7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  font-size:2.6rem;
+  box-shadow:0 12px 30px rgba(123,47,247,.35);
+}
+
+.profile-info{flex:1}
+.profile-info h1{margin:0;color:#fff;font-size:2rem;font-weight:700}
+.profile-info p{margin:.35rem 0 0;color:#b7b7b7}
+
+.info-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+ gap:1rem;
+}
+
+.info-card{
+ background:#181818;
+ border-radius:18px;
+ padding:1.25rem;
+ transition:.25s;
+ border:1px solid rgba(255,255,255,.04);
+}
+
+.info-card:hover{
+ transform:translateY(-5px);
+ background:#1d1d1d;
+ box-shadow:0 10px 25px rgba(123,47,247,.18);
+}
+
+.info-card i{
+ color:#D4AF37;
+ font-size:1.2rem;
+ margin-bottom:.75rem;
+ display:inline-block;
+}
+
+.info-card label{
+ display:block;
+ color:#9b9b9b;
+ font-size:.82rem;
+ margin-bottom:.3rem;
+}
+
+.info-card span{
+ color:#fff;
+}
+
+.side-card{
+ background:#111;
+ border-radius:22px;
+ padding:1.75rem;
+ border:1px solid rgba(255,255,255,.05);
+ box-shadow:0 15px 35px rgba(0,0,0,.30);
+ margin-bottom:1.5rem;
+ transition:.25s;
+ color: white;
+}
+.side-card:hover{
+ transform:translateY(-4px);
+}
+.side-card h5{
+ color:#D4AF37;
+ margin-bottom:1rem;
+}
+
+.btn-edit{
+ background:linear-gradient(135deg,#7B2FF7,#A855F7);
+ border:none;
+ color:#fff;
+ border-radius:14px;
+ padding:.8rem 1.8rem;
+ transition:.25s;
+}
+.btn-edit:hover{
+ color:#fff;
+ transform:translateY(-3px);
+ box-shadow:0 12px 30px rgba(123,47,247,.35);
+}
+
+.back-link{
+ color:#bdbdbd;
+ text-decoration:none;
+ transition:.2s;
+}
+.back-link:hover{
+ color:#D4AF37;
+}
+
+.badge{
+ padding:.55rem .9rem;
+ border-radius:999px;
+ font-weight:600;
+}
+.badge-activo{background:#198754;color:#fff}
+.badge-vencido{background:#7B2FF7;color:#fff}
+.badge-suspendido{background:#dc3545;color:#fff}
+
+.text-warning-days{
+ color:#D4AF37;
+ font-weight:700;
+}

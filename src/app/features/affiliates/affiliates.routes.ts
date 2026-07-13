@@ -24,7 +24,7 @@ export const AFFILIATES_ROUTES: Routes = [
     path: ':id',
     loadComponent: () =>
       import('./affiliate-detail/affiliate-detail').then(
-        (m) => m.AffiliateDetail
+        (m) => m.AffiliateDetailComponent
       ),
     title: 'Detalle de afiliado',
   },

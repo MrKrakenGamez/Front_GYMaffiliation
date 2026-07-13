@@ -32,7 +32,7 @@ export class AffiliateFormComponent {
     documentType: ['DNI', Validators.required],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    birthDate: ['', Validators.required],
+    birthDate: [''], // se vuelve requerido solo en modo creación (ver constructor)
     email: ['', [Validators.required, Validators.email]],
     phone: [''],
     address: [''],
@@ -47,9 +47,13 @@ export class AffiliateFormComponent {
       this.isEditMode.set(true);
       this.affiliateId.set(Number(idParam));
       this.loadAffiliate(Number(idParam));
-      // En edición no se permite cambiar el documento (identidad del afiliado)
       this.form.controls.documentNumber.disable();
       this.form.controls.documentType.disable();
+      // TODO: si el backend agrega BirthDate a AfiliadoResponse, quitar esta línea
+      // y volver a poner Validators.required en birthDate.
+    } else {
+      this.form.controls.birthDate.addValidators(Validators.required);
+      this.form.controls.birthDate.updateValueAndValidity();
     }
   }
 
@@ -65,7 +69,6 @@ export class AffiliateFormComponent {
         documentType: afiliado.documentType,
         firstName: afiliado.firstName,
         lastName: afiliado.lastName,
-        birthDate: afiliado.registrationDate ? '' : '', // ver nota debajo
         email: afiliado.email,
         phone: afiliado.phone ?? '',
         address: afiliado.address ?? '',
@@ -102,15 +105,21 @@ export class AffiliateFormComponent {
           next: (res) => {
             this.isSubmitting.set(false);
             if (res.success) {
-              this.notificationService.success('Afiliado actualizado correctamente.');
+              this.notificationService.success(
+                'Afiliado actualizado correctamente.',
+              );
               this.router.navigate(['/affiliates', this.affiliateId()]);
             } else {
-              this.notificationService.error(res.error?.message ?? 'No se pudo actualizar.');
+              this.notificationService.error(
+                res.error?.message ?? 'No se pudo actualizar.',
+              );
             }
           },
           error: () => {
             this.isSubmitting.set(false);
-            this.notificationService.error('No se pudo actualizar el afiliado.');
+            this.notificationService.error(
+              'No se pudo actualizar el afiliado.',
+            );
           },
         });
     } else {
@@ -132,10 +141,14 @@ export class AffiliateFormComponent {
           next: (res) => {
             this.isSubmitting.set(false);
             if (res.success && res.data) {
-              this.notificationService.success('Afiliado creado correctamente.');
+              this.notificationService.success(
+                'Afiliado creado correctamente.',
+              );
               this.router.navigate(['/affiliates', res.data.affiliateId]);
             } else {
-              this.notificationService.error(res.error?.message ?? 'No se pudo crear el afiliado.');
+              this.notificationService.error(
+                res.error?.message ?? 'No se pudo crear el afiliado.',
+              );
             }
           },
           error: () => {
