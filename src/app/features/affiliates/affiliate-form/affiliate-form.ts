@@ -1,5 +1,3 @@
-// src/app/features/affiliates/affiliate-form/affiliate-form.component.ts
-
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -25,7 +23,7 @@ export class AffiliateFormComponent {
   isEditMode = signal(false);
   isSubmitting = signal(false);
 
-  documentTypes = ['DNI', 'PASAPORTE', 'CEDULA'];
+  documentTypes = ['DNI', 'PASAPORTE', 'CEDULA','INE'];
 
   form = this.fb.group({
     documentNumber: ['', Validators.required],

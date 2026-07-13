@@ -17,11 +17,19 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      // {
+      //   path: 'dashboard',
+      //   loadComponent: () =>
+      //     import('./features/dashboard/dashboard-placeholder/dashboard-placeholder').then(
+      //       (m) => m.DashboardPlaceholderComponent,
+      //     ),
+      //   title: 'Dashboard — GymAffiliate Manager',
+      // }
       {
         path: 'dashboard',
         loadComponent: () =>
-          import('./features/dashboard/dashboard-placeholder/dashboard-placeholder').then(
-            (m) => m.DashboardPlaceholderComponent,
+          import('./features/dashboard/dashboard/dashboard').then(
+            (m) => m.DashboardComponent,
           ),
         title: 'Dashboard — GymAffiliate Manager',
       },

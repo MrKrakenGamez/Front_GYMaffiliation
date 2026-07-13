@@ -1,0 +1,82 @@
+<h2 class="mb-4">Dashboard</h2>
+
+<!-- Tarjetas de estadísticas -->
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-lg-3">
+    <app-stat-card
+      label="Afiliados activos"
+      [value]="totalAfiliadosActivos().toString()"
+      icon="bi-people-fill"
+      accentColor="#00E676"
+    />
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <app-stat-card
+      label="Ingresos del mes"
+      [value]="totalIngresosMesStr()"
+      icon="bi-cash-coin"
+      accentColor="#FFD700"
+    />
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <app-stat-card
+      label="Por vencer (7 días)"
+      [value]="vencimientos().length.toString()"
+      icon="bi-bell-fill"
+      accentColor="#FFD700"
+    />
+  </div>
+  @for (estado of afiliadosEstado(); track estado.status) {
+    @if (!estado.status.toLowerCase().includes('activo')) {
+      <div class="col-sm-6 col-lg-3">
+        <app-stat-card
+          [label]="estado.status"
+          [value]="estado.total.toString()"
+          [icon]="statusIcon(estado.status)"
+          [accentColor]="statusColor(estado.status)"
+        />
+      </div>
+    }
+  }
+</div>
+
+<div class="row g-4">
+  <!-- Gráfico de ingresos por método de pago -->
+  <div class="col-lg-6">
+    <div class="neomorphic p-4 h-100">
+      <h5 class="text-gold mb-3"><i class="bi bi-bar-chart-fill me-2"></i>Ingresos por método de pago</h5>
+      <app-bar-chart [items]="ingresosChartData()" [maxValue]="ingresosMax()" />
+    </div>
+  </div>
+
+  <!-- Membresías por vencer -->
+  <div class="col-lg-6">
+    <div class="neomorphic p-4 h-100">
+      <h5 class="text-gold mb-3"><i class="bi bi-exclamation-triangle-fill me-2"></i>Membresías por vencer</h5>
+      <div class="expiry-list">
+        @for (v of vencimientos(); track v.membershipId) {
+          <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary">
+            <div>
+              <div>{{ v.fullName }}</div>
+              <small class="text-white-50">{{ v.membershipType }}</small>
+            </div>
+            <span class="badge bg-gold">{{ v.daysUntilExpiry }} días</span>
+          </div>
+        } @empty {
+          <p class="text-white-50 text-center mb-0">No hay membresías por vencer en los próximos 7 días.</p>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Placeholder: se conecta en Fase 6 (Control de Acceso) -->
+  <!-- <div class="col-12">
+    <div class="neomorphic p-4">
+      <h5 class="text-gold mb-3"><i class="bi bi-door-open-fill me-2"></i>Últimos accesos</h5>
+      <p class="text-white-50 mb-0">
+        Este panel se conecta en <strong>Fase 6 (Control de Acceso)</strong>, cuando exista
+        un endpoint de listado de accesos recientes en el backend.
+      </p>
+    </div>
+  </div>
+</div> -->

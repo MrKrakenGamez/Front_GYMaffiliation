@@ -1,97 +1,116 @@
-<div class="mb-4">
-  <a routerLink="/affiliates" class="text-white-50 text-decoration-none">
-    <i class="bi bi-arrow-left me-1"></i> Volver a Afiliados
-  </a>
-  <h2 class="mt-2">{{ isEditMode() ? 'Editar afiliado' : 'Nuevo afiliado' }}</h2>
+<div class="form-header mb-4">
+  <a routerLink="/affiliates" class="back-link"
+    ><i class="bi bi-arrow-left-circle me-2"></i>Volver a Afiliados</a
+  >
+  <h2 class="page-title mt-3">
+    <i
+      class="bi"
+      [ngClass]="isEditMode() ? 'bi-pencil-square' : 'bi-person-plus-fill'"
+    ></i>
+    {{ isEditMode() ? "Editar afiliado" : "Nuevo afiliado" }}
+  </h2>
+  <p class="page-subtitle">
+    Complete la información del afiliado. Los campos marcados con * son
+    obligatorios.
+  </p>
 </div>
 
-<form [formGroup]="form" (ngSubmit)="submit()" novalidate class="glassmorphism p-4 p-md-5">
-  <div class="row g-3">
+<form
+  class="affiliate-form-card"
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+  novalidate
+>
+  <div class="section-title">
+    <i class="bi bi-person-vcard-fill"></i> Información General
+  </div>
+  <div class="row g-4">
     <div class="col-md-6">
-      <label class="form-label text-white-50">Tipo de documento</label>
-      <select class="form-select" formControlName="documentType">
+      <label><i class="bi bi-card-text"></i> Tipo de documento *</label
+      ><select class="form-select modern-input" formControlName="documentType">
         @for (type of documentTypes; track type) {
           <option [value]="type">{{ type }}</option>
         }
       </select>
     </div>
     <div class="col-md-6">
-      <label class="form-label text-white-50">Número de documento</label>
-      <input type="text" class="form-control" formControlName="documentNumber" />
-    </div>
-
-    <div class="col-md-6">
-      <label class="form-label text-white-50">Nombre</label>
-      <input
-        type="text"
-        class="form-control"
-        formControlName="firstName"
-        [class.is-invalid]="form.controls.firstName.invalid && form.controls.firstName.touched"
+      <label><i class="bi bi-upc-scan"></i> Número de documento *</label
+      ><input
+        class="form-control modern-input"
+        formControlName="documentNumber"
       />
     </div>
     <div class="col-md-6">
-      <label class="form-label text-white-50">Apellido</label>
-      <input
-        type="text"
-        class="form-control"
-        formControlName="lastName"
-        [class.is-invalid]="form.controls.lastName.invalid && form.controls.lastName.touched"
-      />
+      <label><i class="bi bi-person-fill"></i> Nombre *</label
+      ><input class="form-control modern-input" formControlName="firstName" />
     </div>
-
+    <div class="col-md-6">
+      <label><i class="bi bi-person"></i> Apellido *</label
+      ><input class="form-control modern-input" formControlName="lastName" />
+    </div>
     @if (!isEditMode()) {
       <div class="col-md-6">
-        <label class="form-label text-white-50">Fecha de nacimiento</label>
-        <input
+        <label><i class="bi bi-calendar-event"></i> Fecha de nacimiento *</label
+        ><input
           type="date"
-          class="form-control"
+          class="form-control modern-input"
           formControlName="birthDate"
-          [class.is-invalid]="form.controls.birthDate.invalid && form.controls.birthDate.touched"
         />
       </div>
     }
-
     <div class="col-md-6">
-      <label class="form-label text-white-50">Email</label>
-      <input
+      <label><i class="bi bi-envelope-fill"></i> Email *</label
+      ><input
         type="email"
-        class="form-control"
+        class="form-control modern-input"
         formControlName="email"
-        [class.is-invalid]="form.controls.email.invalid && form.controls.email.touched"
+      />
+    </div>
+    <div class="section-title mt-4">
+      <i class="bi bi-telephone-fill"></i> Información de Contacto
+    </div>
+    <div class="col-md-6">
+      <label>Teléfono</label
+      ><input class="form-control modern-input" formControlName="phone" />
+    </div>
+    <div class="col-md-6">
+      <label>Dirección</label
+      ><input class="form-control modern-input" formControlName="address" />
+    </div>
+    <div class="col-md-6">
+      <label>Contacto emergencia</label
+      ><input
+        class="form-control modern-input"
+        formControlName="emergencyContact"
       />
     </div>
     <div class="col-md-6">
-      <label class="form-label text-white-50">Teléfono</label>
-      <input type="text" class="form-control" formControlName="phone" />
+      <label>Teléfono emergencia</label
+      ><input
+        class="form-control modern-input"
+        formControlName="emergencyPhone"
+      />
     </div>
-
     <div class="col-12">
-      <label class="form-label text-white-50">Dirección</label>
-      <input type="text" class="form-control" formControlName="address" />
-    </div>
-
-    <div class="col-md-6">
-      <label class="form-label text-white-50">Contacto de emergencia</label>
-      <input type="text" class="form-control" formControlName="emergencyContact" />
-    </div>
-    <div class="col-md-6">
-      <label class="form-label text-white-50">Teléfono de emergencia</label>
-      <input type="text" class="form-control" formControlName="emergencyPhone" />
-    </div>
-
-    <div class="col-12">
-      <label class="form-label text-white-50">Notas</label>
-      <textarea class="form-control" rows="3" formControlName="notes"></textarea>
+      <label>Notas</label
+      ><textarea
+        rows="4"
+        class="form-control modern-input"
+        formControlName="notes"
+      ></textarea>
     </div>
   </div>
-
-  <div class="d-flex justify-content-end gap-2 mt-4">
-    <a routerLink="/affiliates" class="btn btn-outline-light">Cancelar</a>
-    <button type="submit" class="btn bg-electric-blue fw-semibold" [disabled]="isSubmitting()">
+  <div class="form-actions">
+    <a routerLink="/affiliates" class="btn btn-danger">Cancelar</a>
+    <button
+      class="btn btn-save"
+      type="submit"
+      [disabled]="form.invalid || isSubmitting()"
+    >
       @if (isSubmitting()) {
         <span class="spinner-border spinner-border-sm me-2"></span>
       }
-      Guardar
+      <i class="bi bi-floppy-fill me-2"></i>Guardar afiliado
     </button>
   </div>
 </form>
