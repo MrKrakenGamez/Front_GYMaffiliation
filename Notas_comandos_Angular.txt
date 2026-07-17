@@ -64,6 +64,12 @@ ng generate component shared/components/paginator --skip-tests
 ng generate component shared/components/search-input --skip-tests
 ng generate component shared/components/confirmation-dialog --skip-tests
 
+10.- membership
+ng generate service features/memberships/services/membership --skip-tests
+ng generate component features/memberships/membership-manage --skip-tests
+ng generate component shared/components/affiliate-picker --skip-tests
+ng generate component shared/components/plan-card --skip-tests
+
 
 
 

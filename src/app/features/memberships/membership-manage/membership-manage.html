@@ -1,0 +1,85 @@
+<h2 class="mb-4">Gestión de Membresías</h2>
+
+<ul class="nav nav-tabs border-secondary mb-4">
+  <li class="nav-item">
+    <button class="nav-link" [class.active]="activeTab() === 'assign'" (click)="setTab('assign')">
+      Asignar
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link" [class.active]="activeTab() === 'renew'" (click)="setTab('renew')">
+      Renovar
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link" [class.active]="activeTab() === 'change-plan'" (click)="setTab('change-plan')">
+      Cambiar plan
+    </button>
+  </li>
+</ul>
+
+<div class="glassmorphism p-4 p-md-5">
+  <!-- Paso 1: seleccionar afiliado -->
+  <div class="mb-4">
+    <label class="form-label text-white-50 mb-2">Afiliado</label>
+    <app-affiliate-picker (affiliateSelected)="onAffiliateSelected($event)" />
+  </div>
+
+  <!-- Paso 2: seleccionar plan (no aplica si Renovar deja el mismo plan) -->
+  @if (activeTab() !== 'renew' || plans().length > 0) {
+    <div class="mb-4">
+      <label class="form-label text-white-50 mb-2">
+        Plan
+        @if (activeTab() === 'renew') {
+          <small class="text-white-50">(opcional — deja vacío para renovar el mismo plan)</small>
+        }
+      </label>
+      <div class="row g-3">
+        @for (plan of plans(); track plan.membershipTypeId) {
+          <div class="col-sm-6 col-md-4">
+            <app-plan-card
+              [plan]="plan"
+              [selected]="selectedPlan()?.membershipTypeId === plan.membershipTypeId"
+              [isPremium]="isPremium(plan)"
+              (planSelected)="selectedPlan.set($event)"
+            />
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- Paso 3: detalles -->
+  <div class="row g-3 mb-4">
+    @if (activeTab() !== 'renew') {
+      <div class="col-md-6">
+        <label class="form-label text-white-50">Fecha de inicio (opcional)</label>
+        <input type="date" class="form-control" [ngModel]="startDate()" (ngModelChange)="startDate.set($event)" />
+      </div>
+    }
+    @if (activeTab() !== 'change-plan') {
+      <div class="col-md-6">
+        <label class="form-label text-white-50">Notas (opcional)</label>
+        <input type="text" class="form-control" [ngModel]="notes()" (ngModelChange)="notes.set($event)" />
+      </div>
+    }
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <button class="btn bg-electric-blue fw-semibold px-4" [disabled]="isSubmitting()" (click)="submit()">
+      @if (isSubmitting()) {
+        <span class="spinner-border spinner-border-sm me-2"></span>
+      }
+      Confirmar
+    </button>
+  </div>
+</div>
+
+<!-- Placeholder: no existe endpoint de historial en el backend todavía -->
+<div class="neomorphic p-4 mt-4">
+  <h5 class="text-gold mb-2"><i class="bi bi-clock-history me-2"></i>Historial de membresías</h5>
+  <p class="text-white-50 mb-0">
+    Pendiente de un endpoint de historial en el backend (<code>GET /membresias/historial/&#123;affiliateId&#125;</code>
+    o similar). Por ahora, el detalle del afiliado (Fase 2) muestra solo la membresía vigente.
+  </p>
+</div>

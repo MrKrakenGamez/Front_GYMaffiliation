@@ -1,0 +1,14 @@
+.nav-tabs {
+  .nav-link {
+    color: #888;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+
+    &.active {
+      color: #00d4ff;
+      border-bottom-color: #00d4ff;
+      background: transparent;
+    }
+  }
+}

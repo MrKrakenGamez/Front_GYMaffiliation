@@ -40,6 +40,14 @@ export const routes: Routes = [
             (m) => m.AFFILIATES_ROUTES,
           ),
       },
+      {
+        path: 'memberships/assign',
+        loadComponent: () =>
+          import('./features/memberships/membership-manage/membership-manage').then(
+            (m) => m.MembershipManageComponent,
+          ),
+        title: 'Membresías — GymAffiliate Manager',
+      },
       // Próximas fases se agregan aquí como hijos del layout:
       // { path: 'affiliates', loadChildren: ... }
       // { path: 'memberships/assign', ... }
